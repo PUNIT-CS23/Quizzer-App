@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quizzer- Login</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .modal-content p {
+            margin-bottom: 20px;
+        }
+        .modal-content button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .modal-content button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    	<div id="preloader">
+		<img src="/images/icon.jpg" alt="Preloader" class="preloader-icon">
+		<p class="loading-text">Loading...</p>
+	</div>
+  <div id="main-content">
+        <img id="login-form" class="wave" src="/images/wave.png">
+    <div class="container">
+        <div class="img">
+            <img src="/images/bg.svg">
+        </div>
+        <div class="login-content">
+            <form id="loginForm">
+                <img src="/images/avatar.svg">
+                <h2 class="title">Welcome</h2>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <!-- <h3>Email</h3> -->
+                        <input name="email" id="email" placeholder="Enter email"  type="email" class="input" required>
+                    </div>
+                </div>
+                <div class="input-div pass">
+                    <div class="i"> 
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="div">
+                        <!-- <h5>Password</h5> -->
+                        <input id="password" name="password" placeholder="enter password" type="password" class="input" required>
+                    </div>
+                </div>
+                <a href="/Quiz/signup">Sign up?</a>
+                <input type="submit" class="btn" value="Login">
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Popup -->
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <p id="errorMsg">Invalid email or password.</p>
+            <button onclick="closeModal()">Retry</button>
+        </div>
+    </div>
+
+    <script>
+        // Handle form submission with AJAX
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();  // Prevent the default form submission
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            fetch('/Quiz/dashboard', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            })
+            .then(response => {
+                if (response.status === 401) {
+                    // Show modal popup if login fails
+                    document.getElementById('errorMsg').textContent = 'Invalid email or password.';
+                    document.getElementById('errorModal').style.display = 'block';
+                } else if (response.ok) {
+                    window.location.href = '/Quiz/dashboard';  // Redirect on successful login
+                } else {
+                    document.getElementById('errorMsg').textContent = 'An error occurred, please try again.';
+                    document.getElementById('errorModal').style.display = 'block';
+                }
+            })
+            .catch(error => {
+                document.getElementById('errorMsg').textContent = 'An error occurred, please try again.';
+                document.getElementById('errorModal').style.display = 'block';
+                console.error('Error:', error);
+            });
+        });
+
+        // Close the modal
+        function closeModal() {
+            document.getElementById('errorModal').style.display = 'none';
+        }
+    </script>
+ </div>
+
+    <script>
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            document.body.classList.add('loaded');
+        }, 300); // Adjust delay as needed
+    });
+</script>
+</body>
+</html>

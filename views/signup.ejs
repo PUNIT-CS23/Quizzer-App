@@ -1,0 +1,221 @@
+<!DOCTYPE
+html >
+  <html>
+  <head>
+    <title>Quizzer - Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      #loader {
+        margin-left: 8px;
+      }
+
+      button:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="preloader">
+      <img src="/images/icon.jpg" alt="Preloader" class="preloader-icon" />
+      <p class="loading-text">Loading...</p>
+    </div>
+
+    <div id="main-content">
+      <img class="wave" src="/images/wave.png" />
+      <div class="container">
+        <div class="img">
+          <img src="/images/bg.svg" />
+        </div>
+        <div class="login-content">
+          <form id="signupForm">
+            <img src="/images/avatar.svg" />
+            <h2 class="title">Create Account</h2>
+
+            <div class="input-div one">
+              <div class="i">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="div">
+                <input
+                  name="name"
+                  id="name"
+                  type="text"
+                  class="input"
+                  placeholder="Enter Full Name"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="input-div one">
+              <div class="i">
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <div class="div">
+                <input
+                  name="email"
+                  id="email"
+                  type="email"
+                  class="input"
+                  placeholder="Enter your Email"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="input-div pass">
+              <div class="i">
+                <i class="fas fa-lock"></i>
+              </div>
+              <div class="div">
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  class="input"
+                  placeholder="Enter Password"
+                  required
+                />
+              </div>
+            </div>
+
+            <a
+              style="
+                color: black;
+                padding: 5px;
+                text-align: right;
+                width: auto;
+                border-radius: 20px;
+              "
+              href="/Quiz/login"
+            >
+              <i class="fa-solid fa-right-to-bracket"> &nbsp;</i>Login
+            </a>
+            <button type="button" class="btn" onclick="sendOtp()" id="signupBtn">
+              <span id="btnText">Sign up</span>
+              <span id="loader" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i>
+              </span>
+            </button>
+          </form>
+
+          <!-- OTP Verification Form (Initially Hidden) -->
+          <form id="otpForm" style="display: none">
+            <h2 class="title">Enter OTP</h2>
+            <div class="input-div one">
+              <div class="i">
+                <i class="fas fa-key"></i>
+              </div>
+              <div class="div">
+                <input
+                  name="otp"
+                  required
+                  id="otp"
+                  type="text"
+                  class="input"
+                  placeholder="Enter OTP"
+                />
+              </div>
+            </div>
+            <p style="color: red;">If not received, check your mail spam</p>
+            <button type="button" class="btn" onclick="verifyOtp()">
+              Verify OTP
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+      // YAHA MAI CHANGE KR RHA HU NAME KE LIYE
+
+      async function sendOtp() {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        // Show loader and hide button text
+        document.getElementById("loader").style.display = "inline-block";
+        document.getElementById("btnText").style.display = "none";
+        document.getElementById("signupBtn").disabled = true;
+
+        try {
+          const response = await fetch("/Quiz/signup", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, password }),
+          });
+
+          const data = await response.json();
+
+          if (response.status === 200) {
+            Swal.fire("✅ OTP Sent!", "Check your email for the OTP.", "success");
+            document.getElementById("signupForm").style.display = "none";
+            document.getElementById("otpForm").style.display = "block";
+          } else {
+            Swal.fire("❌ Error!", data.msg, "error");
+          }
+        } catch (error) {
+          Swal.fire("❌ Error!", "Something went wrong. Please try again.", "error");
+        } finally {
+          // Hide loader and show button text regardless of success or failure
+          document.getElementById("loader").style.display = "none";
+          document.getElementById("btnText").style.display = "inline-block";
+          document.getElementById("signupBtn").disabled = false;
+        }
+      }
+
+      async function verifyOtp() {
+        const email = document.getElementById("email").value;
+        const otp = document.getElementById("otp").value;
+
+        const response = await fetch("/Quiz/verify-otp", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, otp }),
+        });
+
+        const data = await response.json();
+
+        if (response.status === 200) {
+          Swal.fire(
+            "✅ Success!",
+            "Email Verified Successfully! Please Login.",
+            "success"
+          ).then(() => {
+            window.location.href = "/Quiz/login";
+          });
+        } else {
+          Swal.fire("❌ Error!", data.msg, "error");
+        }
+      }
+
+      window.addEventListener("load", function () {
+        setTimeout(() => {
+          document.body.classList.add("loaded");
+        }, 300);
+      });
+    </script>
+  </body>
+</html>
+

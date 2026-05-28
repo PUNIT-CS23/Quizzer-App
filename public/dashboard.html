@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizzer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/dashboard.css" />
+    <link rel="stylesheet" href="/material.css" />
+
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  </head>
+  <body>
+    <div id="preloader">
+      <img
+        src="/images/icon.jpg"
+        style="border-radius: 50%"
+        alt="Preloader"
+        class="preloader-icon"
+      />
+      <p class="loading-text">Loading...</p>
+    </div>
+
+    <div id="main-content">
+      <div class="toggle-btn" onclick="toggleSidebar()">☰</div>
+
+      <div class="wrapper">
+        <div class="sidebar">
+          <h2>Quizzer</h2>
+          <ul>
+            <li class="toggle1">
+              <a href="#"><i class="fas fa-home"></i>Home</a>
+            </li>
+
+            <li class="toggle2">
+              <a href="#"><i class="fas fa-address-card"></i>About</a>
+            </li>
+
+            <li class="toggle3">
+              <a href="/material"
+                ><i class="fas fa-project-diagram"></i>Materials</a
+              >
+            </li>
+            <li class="toggle3">
+              <a href="/quiz-history"
+                ><i class="fa-solid fa-file-waveform"></i> Quiz History</a
+              >
+            </li>
+            <li class="toggle3">
+              <a href="/leaderboard"
+                ><i class="fa-solid fa-ranking-star"></i> Leaderboard</a
+              >
+            </li>
+            <li class="toggle4">
+              <a href="#"><i class="fas fa-address-book"></i>Contact</a>
+            </li>
+            <li class="toggle5">
+              <a id="log" style="color: rgb(255, 153, 153)" href="/Quiz/logout"
+                ><i class="fas fa-sign-out"></i>Logout</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="main_content">
+          <div class="header">Welcome!! Have a nice day.</div>
+          <div class="info">
+            <div class="ag-format-container">
+              <div class="ag-courses_box">
+
+                <!-- Environmental -->
+                <div class="ag-courses_item">
+                  <a href="/Environmental/Start" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+                    <div class="ag-courses-item_title">
+                      NPTEL <br />Introduction to Environmental Engineering and science
+                    </div>
+
+                    <div class="ag-courses-item_date-box">
+                      Exam:
+                      <span class="ag-courses-item_date"> 26.10.2024 </span>
+                    </div>
+                    <span class="premium-icon">🔒 Premium</span>
+                  </a>
+                </div>
+
+                 <!-- Organizational Behaviour -->
+                 <div class="ag-courses_item">
+                  <a href="/Organizational-Behaviour/Start" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+
+                    <div class="ag-courses-item_title">
+                      NPTEL <br />Organizational Behaviour: Individual Dynamics in Organization
+                    </div>
+
+                    <div class="ag-courses-item_date-box">
+                      Exam:
+                      <span class="ag-courses-item_date"> 27.04.2025 </span>
+                    </div>
+                    <span class="premium-icon">🔒 Premium</span>
+                  </a>
+                </div>
+
+                <!-- LeaderShip -->
+                <div class="ag-courses_item">
+                  <a href="/LeaderShip/Start" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+
+                    <div class="ag-courses-item_title">
+                      NPTEL <br /> 	
+                      Leadership and Team Effectiveness
+                    </div>
+
+                    <div class="ag-courses-item_date-box">
+                      Exam:
+                      <span class="ag-courses-item_date"> 27.04.2025 </span>
+                    </div>
+                    <span class="premium-icon">🔒 Premium</span>
+                  </a>
+                </div>
+
+                <!-- quiz 1 -->
+                <div class="ag-courses_item">
+                  <a href="/Quiz/Start" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+                    <div class="ag-courses-item_title">
+                      NPTEL <br />E - BUSINESS
+                    </div>
+
+                    <div class="ag-courses-item_date-box">
+                      Exam:
+                      <span class="ag-courses-item_date"> 26.10.2024 </span>
+                    </div>
+                    <span class="premium-icon">🔒 Premium</span>
+                  </a>
+                </div>
+
+                <!-- quiz 2 -->
+                <div class="ag-courses_item">
+                  <a href="/Quiz2/Start" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+
+                    <div class="ag-courses-item_title">
+                      NPTEL <br />Management Information System
+                    </div>
+
+                    <div class="ag-courses-item_date-box">
+                      Exam:
+                      <span class="ag-courses-item_date"> 03.11.2024 </span>
+                    </div>
+                    <span class="premium-icon">🔒 Premium</span>
+                  </a>
+                </div>
+
+                <!-- quiz 3 -->
+
+                <div class="ag-courses_item">
+                  <a href="/Quiz3/Start" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+
+                    <div class="ag-courses-item_title">
+                      NPTEL <br />Software Engineering
+                    </div>
+
+                    <div class="ag-courses-item_date-box">
+                      Exam:
+                      <span class="ag-courses-item_date"> 27.11.2022 </span>
+                    </div>
+                    <span class="premium-icon">🔒 Premium</span>
+                  </a>
+                </div>
+
+                <!-- quiz 4 -->
+
+                <div class="ag-courses_item">
+                  <a href="/Quiz4/Start" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+
+                    <div class="ag-courses-item_title">
+                      NPTEL <br />Organizational Behaviour previous year
+                    </div>
+
+                    <div class="ag-courses-item_date-box">
+                      Exam:
+                      <span class="ag-courses-item_date"> 27.10.2024 </span>
+                    </div>
+                    <span class="premium-icon">🔒 Premium</span>
+                  </a>
+                </div>
+
+                <!-- quiz 5 -->
+
+                <!-- quiz 6 -->
+
+                <div class="ag-courses_item">
+                  <a href="/Quiz/Start" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+
+                    <div class="ag-courses-item_title">
+                      NPTEL <br />Intro. To Environmental Engineering..
+                    </div>
+
+                    <div class="ag-courses-item_date-box">
+                      Exam:
+                      <span class="ag-courses-item_date"> 30.11.2022 </span>
+                    </div>
+                    <span class="premium-icon">🔒 Premium</span>
+                  </a>
+                </div>
+
+                <!-- quiz 5-->
+
+                <div class="ag-courses_item">
+                  <a href="/Quiz5/Start" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+
+                    <div class="ag-courses-item_title">
+                      NPTEL <br />Human Resource Development
+                    </div>
+
+                    <div class="ag-courses-item_date-box">
+                      Exam:
+                      <span class="ag-courses-item_date"> 26.10.2024 </span>
+                    </div>
+                    <span class="premium-icon">🔒 Premium</span>
+                  </a>
+                </div>
+
+                <!-- quiz 6  -->
+
+                <div class="ag-courses_item">
+                  <a href="/Quiz6/Start" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+
+                    <div class="ag-courses-item_title">
+                      NPTEL <br />Learning Analytics Course
+                    </div>
+
+                    <div class="ag-courses-item_date-box">
+                      Exam:
+                      <span class="ag-courses-item_date"> 02.11.2024 </span>
+                    </div>
+                    <span class="premium-icon">🔒 Premium</span>
+                  </a>
+                </div>
+
+                <!-- quiz 7  -->
+                <div class="ag-courses_item">
+                  <a href="/Quiz7/Start" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+
+                    <div class="ag-courses-item_title">
+                      NPTEL <br />Experimental Biotechnology
+                    </div>
+
+                    <div class="ag-courses-item_date-box">
+                      Exam:
+                      <span class="ag-courses-item_date"> 27.10.2024 </span>
+                    </div>
+                    <span class="premium-icon">🔒 Premium</span>
+                  </a>
+                </div>
+
+                <!-- quiz8  -->
+
+                <div class="ag-courses_item">
+                  <a href="/Quiz8/Start" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+
+                    <div class="ag-courses-item_title">
+                      NPTEL <br />Ethics in Enviromental Practice
+                    </div>
+
+                    <div class="ag-courses-item_date-box">
+                      Exam:
+                      <span class="ag-courses-item_date"> 04.11.2022 </span>
+                    </div>
+                    <span class="premium-icon">🔒 Premium</span>
+                  </a>
+                </div>
+
+               
+
+              </div>
+            </div>
+
+            <!-- Background Blur Overlay -->
+            <div id="adOverlay"></div>
+
+            <!-- Ad Pop-up -->
+            <!-- Ad Pop-up -->
+            <div id="adPopup">
+              <span class="close-icon" id="closeAdIcon">&times;</span>
+              <h3 id="adTitle"></h3>
+              <img
+                id="adImage"
+                src="/placeholder.svg"
+                alt="Ad Image"
+                style="max-width: 100%"
+              />
+              <p>
+                <span id="adSocialLink" style="margin-right: 10px"></span>
+                Contact: <span id="adContact"></span>
+              </p>
+            </div>
+
+            <script>
+              async function fetchRandomAd() {
+                try {
+                  const response = await fetch("/get-random-ad");
+                  const ad = await response.json();
+
+                  if (ad && ad.imageUrl) {
+                    console.log("Ad received:", ad);
+
+                    document.getElementById("adTitle").innerText = ad.title;
+                    document.getElementById("adImage").src = ad.imageUrl;
+                    document.getElementById("adContact").innerText = ad.contact;
+                
+
+                    const socialLinkEl = document.getElementById("adSocialLink");
+                   
+                      socialLinkEl.innerHTML = `<a href="${ad.socialLink}" target="_blank">🔗 Whatshap</a>`;
+                 
+
+
+                    document.getElementById("adPopup").style.display = "block";
+                    // We don't show the overlay anymore
+                  } else {
+                    console.warn("No ad received.");
+                  }
+                } catch (error) {
+                  console.error("Error fetching ad:", error);
+                }
+              }
+
+              // Close the ad when clicking the X icon
+              document
+                .getElementById("closeAdIcon")
+                .addEventListener("click", () => {
+                  document.getElementById("adPopup").style.display = "none";
+                });
+
+              // Load ad on page load
+              window.addEventListener("load", fetchRandomAd);
+            </script>
+
+            <!-- contact us -->
+            <footer class="footer-section">
+              <div class="container">
+                <div class="footer-cta pt-5 pb-5">
+                  <div class="row">
+                    <div class="col-xl-4 col-md-4 mb-30">
+                      <div class="single-cta">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="cta-text">
+                          <h4>Find us</h4>
+                          <span>G.L.A UNIVERSITY MATHURA</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                      <div class="single-cta">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                        <div class="cta-text">
+                          <h4>LinkedIn</h4>
+                          <span
+                            ><a
+                              href="https://www.linkedin.com/in/satyam-rai-720167249/"
+                              >Satyam Rai |</a
+                            ></span
+                          >
+
+                          <span
+                            ><a
+                              href="https://www.linkedin.com/in/sachin-yadav-3804a0255/"
+                              >Sachin Yadav</a
+                            ></span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                      <div class="single-cta">
+                        <i class="far fa-envelope-open"></i>
+                        <div class="cta-text">
+                          <h4>Mail us</h4>
+                          <span>business.project.data@gmail.com</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </div>
+
+          <div id="main-content">
+            <!-- about  -->
+            <div class="about">
+              <h2>Updated Soon</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/payment/status")
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success && data.isPaid) {
+              console.log("✅ User is premium! Removing premium icons...");
+              document
+                .querySelectorAll(".premium-icon")
+                .forEach((icon) => icon.remove());
+              const header = document.querySelector(".header");
+              header.innerHTML = `Welcome, You are our <span class="premium-text">Premium</span> member!`;
+            } else {
+              console.log("🔒 User is not premium. Premium icons remain.");
+            }
+          })
+          .catch((error) =>
+            console.error("❌ Error fetching user status:", error)
+          );
+      });
+    </script>
+
+    <script>
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          document.body.classList.add("loaded");
+        }, 100); // Adjust delay as needed
+      });
+    </script>
+
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.querySelector(".sidebar");
+        sidebar.classList.toggle("active");
+      }
+
+      document.querySelector(".toggle4").addEventListener("click", function () {
+        var appointmentDiv1 = document.querySelector(".footer-section");
+        var appointmentDiv2 = document.querySelector(".ag-format-container");
+        var appointmentDiv3 = document.querySelector(".material");
+        var appointmentDiv4 = document.querySelector(".about");
+
+        if (
+          appointmentDiv1.style.display === "none" ||
+          appointmentDiv1.style.display === ""
+        ) {
+          appointmentDiv1.style.display = "block";
+          appointmentDiv2.style.display = "none";
+          appointmentDiv3.style.display = "none";
+          appointmentDiv4.style.display = "none";
+        } else {
+          appointmentDiv1.style.display = "none";
+        }
+      });
+      document.querySelector(".toggle3").addEventListener("click", function () {
+        var appointmentDiv1 = document.querySelector(".material");
+        var appointmentDiv2 = document.querySelector(".ag-format-container");
+        var appointmentDiv3 = document.querySelector(".footer-section");
+        var appointmentDiv4 = document.querySelector(".about");
+
+        if (
+          appointmentDiv1.style.display === "none" ||
+          appointmentDiv1.style.display === ""
+        ) {
+          appointmentDiv1.style.display = "block";
+          appointmentDiv2.style.display = "none";
+          appointmentDiv3.style.display = "none";
+          appointmentDiv4.style.display = "none";
+        } else {
+          appointmentDiv1.style.display = "none";
+        }
+      });
+      document.querySelector(".toggle2").addEventListener("click", function () {
+        var appointmentDiv1 = document.querySelector(".about");
+        var appointmentDiv2 = document.querySelector(".ag-format-container");
+        var appointmentDiv3 = document.querySelector(".material");
+        var appointmentDiv4 = document.querySelector(".footer-section");
+
+        if (
+          appointmentDiv1.style.display === "none" ||
+          appointmentDiv1.style.display === ""
+        ) {
+          appointmentDiv1.style.display = "block";
+          appointmentDiv2.style.display = "none";
+          appointmentDiv3.style.display = "none";
+          appointmentDiv4.style.display = "none";
+        } else {
+          appointmentDiv1.style.display = "none";
+        }
+      });
+      document.querySelector(".toggle1").addEventListener("click", function () {
+        var appointmentDiv1 = document.querySelector(".ag-format-container");
+        var appointmentDiv2 = document.querySelector(".footer-section");
+        var appointmentDiv3 = document.querySelector(".material");
+        var appointmentDiv4 = document.querySelector(".about");
+
+        if (
+          appointmentDiv1.style.display === "none" ||
+          appointmentDiv1.style.display === ""
+        ) {
+          appointmentDiv1.style.display = "block";
+          appointmentDiv2.style.display = "none";
+          appointmentDiv3.style.display = "none";
+          appointmentDiv4.style.display = "none";
+        } else {
+          appointmentDiv1.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

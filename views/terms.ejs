@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizzer</title>
+    <link rel="icon" href="/images/icon.jpg" type="image/x-icon">
+
+    <style>
+       body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+       }
+       .wrap {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-sizing: border-box;
+            height: 100vh;
+            padding: 2rem;
+            background-image: url("/images/signin-bg.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+       }
+       .container {
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            padding: 5px;
+            background-color: #eee;
+            width: 768px;
+            height: 100%;
+            border-radius: 0.25rem;
+            box-shadow: 0rem 1rem 2rem -0.25rem rgba(0, 0, 0, 0.25);
+       }
+       .container__heading {
+            padding: 1rem 0;
+            border-bottom: 1px solid #ccc;
+            text-align: center;
+            color: #fff;
+            background-color: #444499;
+       }
+       .container__heading > h2 {
+            font-size: 1.75rem;
+            line-height: 1.75rem;
+            margin: 0;
+       }
+       .container__content {
+            flex-grow: 1;
+            overflow-y: scroll;
+            animation: fadeIn 1s ease-in-out;
+            padding: 20px;
+            background-color: #ffffff;
+       }
+       .container__nav {
+            border-top: 1px solid #ccc;
+            text-align: right;
+            padding: 2rem 0 1rem;
+       }
+       .container__nav > .button {
+            background-color: #444499;
+            box-shadow: 0rem 0.5rem 1rem -0.125rem rgba(0, 0, 0, 0.25);
+            padding: 0.8rem 2rem;
+            border-radius: 0.5rem;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: transform 0.25s, box-shadow 0.25s;
+       }
+       .container__nav > .button:hover {
+            box-shadow: 0rem 0rem 1rem -0.125rem rgba(0, 0, 0, 0.25);
+            transform: translateY(-0.5rem);
+       }
+       .container__nav > small {
+            color: #545454;
+            margin-right: 1rem;
+            text-align: center;
+       }
+    </style>
+</head>
+<body>
+    
+    <main class="wrap">
+        <section class="container">
+            <div class="container__heading">
+                <h2> Nptel Quiz </h2>
+            </div>
+            <div class="container__content">
+                <h1>Welcome to the Quiz Section!</h1>
+                <p>Before you begin, here’s everything you need to know about the quiz:</p>
+                <h2>Quiz Overview:</h2>
+                <ul>
+                    <li><strong>Quiz Title:</strong> General Knowledge Quiz</li>
+                    <li><strong>Total Questions:</strong> 10</li>
+                    <li><strong>Time Limit:</strong> 15 minutes</li>
+                    <li><strong>Difficulty Level:</strong> Medium</li>
+                    <li><strong>Passing Score:</strong> 70%</li>
+                </ul>
+                <h2>How It Works:</h2>
+                <ul>
+                    <li>Multiple-choice questions with 4 options each.</li>
+                    <li>Navigate between questions using the buttons.</li>
+                    <li>Submit the quiz when finished.</li>
+                    <li>If the timer runs out, the quiz will be auto-submitted.</li>
+                </ul>
+                <h2>Rules and Guidelines:</h2>
+                <ul>
+                    <li>No pausing once started.</li>
+                    <li>Ensure a stable internet connection.</li>
+                    <li>Retakes are not allowed once submitted.</li>
+                    <li>The quiz auto-submits when time is up.</li>
+                </ul>
+                <h2>Test Preparation Tips:</h2>
+                <p>Take a deep breath, stay focused, and you're all set!</p>
+            </div>
+            <div class="container__nav">
+                <small>By clicking 'Proceed' you will enter in Quiz</small>
+                <br><br>
+                <a class="button" href="/Quiz/Start">Proceed</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

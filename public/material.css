@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    /* background-color:#333;; */
+    margin: 0;
+    padding: 0;
+}
+
+.search-section {
+  text-align: right;
+    margin: 20px 0;
+    margin-right: 20px;
+
+}
+.search-section select{
+  width: 100%;
+  background-color: #333;
+  color: white;
+}
+
+.pdf-item iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+#courseSelector {
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.course-section {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.course {
+    margin: 40px 0;
+    text-align: center;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 35px;
+    background-color:white;
+}
+
+.course h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.pdf-container {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    flex-wrap: wrap;
+}
+
+.pdf-item {
+    position: relative;
+    width: 200px;
+    height: 220px;
+}
+
+.pdf-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.download-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    color: #fff;
+    background-color: #28a745;
+    border-radius: 50%;
+    padding: 6px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.download-icon:hover {
+    background-color: #218838;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pdf-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pdf-item {
+        margin-bottom: 20px;
+    }
+}

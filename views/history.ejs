@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz History - Quizzer</title>
+   <style>
+
+        /* Google Font */
+    
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+
+:root{
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --primary-color: green;
+    --secondary-color: green;
+    --table-header: green;
+    --table-hover: rgba(21, 101, 192, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--primary-color);
+    padding: 15px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 130px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+    text-decoration: underline;
+}
+
+/* Theme Toggle Button */
+.theme-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+/* Table */
+.quiz-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.quiz-table th,
+.quiz-table td {
+    padding: 12px;
+    border-bottom: 2px solid var(--primary-color);
+    text-align: center;
+}
+
+.quiz-table th {
+    background: var(--table-header);
+    color: white;
+}
+
+.quiz-table tbody tr {
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.quiz-table tbody tr:hover {
+    background: var(--table-hover);
+    transform: scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+    .nav-links {
+        display: none;
+    }
+}
+
+    </style>
+
+
+    <script defer src="/script.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Quizzer</div>
+       
+        <button id="themeToggle" class="theme-btn"><i class="fas fa-moon"></i></button>
+    </nav>
+
+    <!-- Quiz History Section -->
+    <div class="container">
+        <h1>Quiz History</h1>
+        <% if (quizHistory.length > 0) { %>
+            <table class="quiz-table">
+                <thead>
+                    <tr>
+                        <th>Quiz Name</th>
+                        <th>Date</th>
+                        <th>Total Questions</th>
+                        <th>Marks Obtained</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% quizHistory.forEach(quiz => { %>
+                        <tr>
+                            <td><%= quiz.quizName %></td>
+                            <td><%= new Date(quiz.attemptedDate).toLocaleDateString() %></td>
+                            <td><%= quiz.totalQuestions %></td>
+                            <td><%= quiz.marksObtained %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>No quiz history available.</p>
+        <% } %>
+    </div>
+
+</body>
+</html>

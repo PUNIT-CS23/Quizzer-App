@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quizzer - Login</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      /* Background Overlay */
+.overlay-popup {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Popup Box */
+.popup-container {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: fadeInEffect 0.3s ease-in-out;
+}
+
+/* Close Button */
+.popup-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 25px;
+  color: #e74c3c;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.popup-close-btn:hover {
+  color: #c0392b;
+}
+
+/* Heading */
+.popup-container h2 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Input Fields */
+.popup-field {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.popup-field:focus {
+  border-color: #3498db;
+  box-shadow: 0px 0px 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Submit Button */
+.popup-submit {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: #3498db;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.popup-submit:hover {
+  background: #2980b9;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .popup-container {
+    width: 90%;
+    max-width: 350px;
+    padding: 20px;
+  }
+
+  .popup-container h2 {
+    font-size: 20px;
+  }
+
+  .popup-field {
+    font-size: 14px;
+  }
+
+  .popup-submit {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* Smooth Animation */
+@keyframes fadeInEffect {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .modal-content {
+        background-color: white;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 400px;
+        height: auto;
+        text-align: center;
+      }
+      .modal-content p {
+        margin-bottom: 20px;
+      }
+      .modal-content button {
+        padding-top: 5px;
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      .modal-content button:hover {
+        background-color: #2980b9;
+      }
+      #forgotPasswordForm input{
+        padding: 5px;
+      }
+      .close{
+        cursor: pointer;
+        font-size: 30px;
+        color: red;
+      }
+      .otpForm input{
+        padding: 8px;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div id="preloader">
+      <img src="/images/icon.jpg" alt="Preloader" class="preloader-icon" />
+      <p class="loading-text">Loading...</p>
+    </div>
+
+    <div id="main-content">
+      <img id="login-form" class="wave" src="/images/wave.png" />
+      <div class="container">
+        <div class="img">
+          <img src="/images/bg.svg" />
+        </div>
+        <div class="login-content">
+          <form id="loginForm">
+            <img src="/images/avatar.svg" />
+            <h2 class="title">Welcome</h2>
+            <div class="input-div one">
+              <div class="i">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="div">
+                <input
+                  name="email"
+                  id="email"
+                  placeholder="Enter email"
+                  type="email"
+                  class="input"
+                  required
+                />
+              </div>
+            </div>
+           
+            <div class="input-div pass">
+              <div class="i">
+                <i class="fas fa-lock"></i>
+              </div>
+              <div class="div">
+                <input
+                  id="password"
+                  name="password"
+                  placeholder="Enter password"
+                  type="password"
+                  class="input"
+                  required
+                />
+              </div>
+            </div>
+           
+            <input type="submit" class="btn" value="Login" />
+         
+           <a href="#" id="forgotPasswordBtn">Forgot Password?</a>
+          <a href="/Quiz/signup">Sign up?</a></span>
+           
+          </form>
+        </div>
+      </div>
+
+      <!-- Yaha maine changes kiye h  -->
+
+      <!-- Forgot Password Modal -->
+      <div id="forgotPasswordModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeForgotPasswordModal()"
+            >&times;</span
+          >
+          <h2>Forgot Password</h2>
+          <form id="forgotPasswordForm">
+            <input
+              type="email"
+              id="forgotEmail"
+              placeholder="Enter your email"
+              required
+            />
+            <br>
+            <button type="submit">Send OTP</button>
+          </form>
+        </div>
+      </div>
+      
+
+      <!-- OTP Verification Modal -->
+      <div id="otpModal" class="overlay-popup" style="display: none">
+        <div class="popup-container">
+         x
+          <h2>Verify OTP</h2>
+          <form id="otpForm">
+            <input type="text" id="otpInput" class="popup-field" placeholder="Enter OTP" required />
+            <input type="password" id="newPassword" class="popup-field" placeholder="Enter New Password" required />
+            <button type="submit" class="popup-submit">Verify OTP & Reset Password</button>
+          </form>
+        </div>
+      </div>
+      
+
+      <div id="errorModal" class="modal">
+        <div class="modal-content">
+          <p id="errorMsg">Invalid email or password.</p>
+          <button onclick="closeModal()">Retry</button>
+        </div>
+      </div>
+
+      <script>
+        document
+          .getElementById("loginForm")
+          .addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            fetch("/Quiz/login", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ email, password }),
+            })
+              .then((response) => {
+                const contentType = response.headers.get("content-type");
+
+                // If response is JSON (error messages), parse it
+                if (contentType && contentType.includes("application/json")) {
+                  return response
+                    .json()
+                    .then((data) => ({ status: response.status, body: data }));
+                } else {
+                  return { status: response.status }; // No need to parse if it's an HTML file
+                }
+              })
+              .then(({ status, body }) => {
+                if (status === 400 || status === 401) {
+                  document.getElementById("errorMsg").textContent =
+                    body?.error || "Invalid email or password.";
+                  document.getElementById("errorModal").style.display = "block";
+                } else if (status === 200) {
+                  window.location.href = "/dashboard"; // Redirect to dashboard
+                } else {
+                  document.getElementById("errorMsg").textContent =
+                    "An error occurred, please try again.";
+                  document.getElementById("errorModal").style.display = "block";
+                }
+              })
+              .catch((error) => {
+                document.getElementById("errorMsg").textContent =
+                  "Server error. Please try again later.";
+                document.getElementById("errorModal").style.display = "block";
+                console.error("Error:", error);
+              });
+          });
+
+        function closeModal() {
+          document.getElementById("errorModal").style.display = "none";
+        }
+      </script>
+    </div>
+
+    <script>
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          document.body.classList.add("loaded");
+        }, 300);
+      });
+    </script>
+
+    <!-- Yaha maine changes kiye h -->
+    <script>
+      // Handle Forgot Password Modal
+      document
+        .getElementById("forgotPasswordBtn")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          document.getElementById("forgotPasswordModal").style.display =
+            "block";
+        });
+
+      function closeForgotPasswordModal() {
+        document.getElementById("forgotPasswordModal").style.display = "none";
+      }
+
+      // Handle Forgot Password Request
+      document
+        .getElementById("forgotPasswordForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+          const email = document.getElementById("forgotEmail").value;
+
+          const response = await fetch("/Quiz/forgot-password", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email }),
+          });
+
+          const data = await response.json();
+          if (response.status === 200) {
+            alert("OTP sent to email!");
+            document.getElementById("forgotPasswordModal").style.display =
+              "none";
+            document.getElementById("otpModal").style.display = "block"; // Show OTP modal
+          } else {
+            alert(data.msg);
+          }
+        });
+
+      // Handle OTP Verification & Password Reset
+      document
+        .getElementById("otpForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+          const email = document.getElementById("forgotEmail").value;
+          const otp = document.getElementById("otpInput").value;
+          const newPassword = document.getElementById("newPassword").value;
+
+          const response = await fetch("/Quiz/reset-password", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, otp, newPassword }),
+          });
+
+          const data = await response.json();
+          if (response.status === 200) {
+            alert("Password reset successful!");
+            window.location.reload();
+          } else {
+            alert(data.msg);
+          }
+        });
+    </script>
+  </body>
+</html>

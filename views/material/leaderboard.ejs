@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-size: 62.5%;
+        box-sizing: border-box;
+        margin: 0;
+      }
+      body {
+        height: 100vh;
+        width: 100%;
+        background: url('/images/LeaderboardBack.jpg');
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    
+      main {
+        width: 45rem;
+        height: 44rem;
+        background-color: #ffffff;
+        box-shadow: 0px 5px 15px 8px #e4e7fb;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 0.5rem;
+        overflow: hidden;
+      }
+      #header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2.5rem 2rem;
+      }
+      .share {
+        width: 4.5rem;
+        height: 3rem;
+        background-color: #f55e77;
+        border: 0;
+        border-bottom: 0.2rem solid #c0506a;
+        border-radius: 2rem;
+        cursor: pointer;
+      }
+      .share i {
+        color: #fff;
+        font-size: 2rem;
+      }
+      h1 {
+        font-family: "Rubik", sans-serif;
+        font-size: 1.7rem;
+        color: #141a39;
+        text-transform: uppercase;
+        cursor: default;
+      }
+      #leaderboard {
+        width: 100%;
+        flex-grow: 1;
+        overflow-y: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        color: #141a39;
+        cursor: default;
+      }
+      tr {
+        transition: all 0.2s ease-in-out;
+        border-radius: 0.2rem;
+      }
+      tr:not(:first-child):hover {
+        background-color: #fff;
+        transform: scale(1.1);
+        box-shadow: 0px 5px 15px 8px #e4e7fb;
+      }
+      tr:nth-child(odd) {
+        background-color: #f9f9f9;
+      }
+      tr:nth-child(1) {
+        color: #fff;
+        background-color: #5c5be5;
+      }
+      td {
+        height: 5rem;
+        font-family: "Rubik", sans-serif;
+        font-size: 1.4rem;
+        padding: 1rem 2rem;
+        position: relative;
+      }
+      .number {
+        width: 1.1rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: left;
+       
+       
+      }
+      .name {
+        text-align: left;
+        font-size: 1.5rem;
+        font-weight: bold;
+        
+      }
+      .points {
+        font-weight: bold;
+        font-size: 1.3rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      .points:first-child {
+        width: 10rem;
+      }
+      .gold-medal {
+        height: 3rem;
+        margin-left: 1.5rem;
+      }
+      .current-rank {
+        width: 100%;
+        padding: 1rem 2rem;
+        text-align: center;
+        background-color: #e4e7fb;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="leaderboard-container">
+      <div id="header">
+        <h1>Ranking</h1>
+        <button class="share" onclick="shareLeaderboard()">
+          <i class="ph ph-share-network"></i>
+        </button>
+      </div>
+      <div id="leaderboard">
+        <table>
+          <tr>
+            <td class="number">Rank</td>
+            <td class="name">Name</td>
+            <td class="points">Score (%)</td>
+          </tr>
+          <% leaderboardData.forEach((entry, index) => { %>
+            <tr class="<%= index === 0 ? 'top-rank' : '' %>">
+              <td class="number"><%= index + 1 %></td>
+              <td class="name"><%= entry.name %></td>
+              <td class="points">
+                <%= entry.percentage %> %
+                <% if (index === 0) { %>
+                  <img class="gold-medal" src="https://github.com/malunaridev/Challenges-iCodeThis/blob/master/4-leaderboard/assets/gold-medal.png?raw=true" alt="gold medal" />
+                <% } %>
+              </td>
+            </tr>
+          <% }) %>
+        </table>
+        
+      </div>
+    </main>
+
+    <script>
+      function shareLeaderboard() {
+        const leaderboard = document.getElementById("leaderboard-container");
+
+        html2canvas(leaderboard).then((canvas) => {
+          canvas.toBlob((blob) => {
+            const file = new File([blob], "leaderboard.png", {
+              type: "image/png",
+            });
+
+            if (navigator.share) {
+              navigator
+                .share({
+                  files: [file],
+                  title: "Check out this leaderboard!",
+                  text: "Here's the latest leaderboard. Can you beat my score?",
+                })
+                .then(() => console.log("Shared successfully"))
+                .catch((error) => console.log("Error sharing:", error));
+            } else {
+              const imageUrl = canvas.toDataURL("image/png");
+              const a = document.createElement("a");
+              a.href = imageUrl;
+              a.download = "leaderboard.png";
+              a.click();
+              alert("Your leaderboard image has been downloaded. Share it manually!");
+            }
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/material.css">
+</head>
+<body>
+
+    <div class="material">
+        <div class="search-section">
+          <select id="courseSelector" onchange="filterCourses()">
+              <option value="all">All Courses</option>
+              <option value="business">E- BUSINESS</option>
+              <option value="management">Management Information System</option>
+              <option value="human">Human Resource Development</option>
+              <option value="oraganizational">Organizational Behaviour</option>
+              <option value="enviromental">Intro to Environmental Engineering</option>
+              <option value="ethics">Ethics in Enviromental Practice</option>
+              <option value="software">Software Engineering</option>
+              <option value="learning">Learning Analytics Course</option>
+          </select>
+        </div>
+        
+        <div class="course-section">
+          <!-- GK Section -->
+          <div class="course" data-course="business">
+              <h2>E- BUSINESS</h2>
+              <div class="pdf-container">
+                  <div class="pdf-item">
+                      <img src="/images/material_quizzer.jpg" alt="PDF" class="pdf-image">
+                      <a href="./images/Q.pdf" download class="download-icon">&#128190;</a>
+                  </div>
+                  <div class="pdf-item">
+                      <iframe  src="https://www.youtube.com/embed/videoseries?si=XHKPbMIqWh6ln-o2&amp;list=PLDb-yHQXnvp9wCMDKSGdrU6yuQAEPoYk7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  </div>
+                  <div class="pdf-item">
+                      <img src="/images/material_quizzer.jpg" alt="PDF" class="pdf-image">
+                      <a href="gk3.pdf" download class="download-icon">&#128190;</a>
+                  </div>
+              </div>
+          </div>
+        
+          
+          <div class="course" data-course="management">
+              <h2>Management Information System</h2>
+              <div class="pdf-container">
+                  <div class="pdf-item">
+                      <img src="/images/material_quizzer.jpg" alt="PDF" class="pdf-image">
+                      <a href="maths1.pdf" download class="download-icon">&#128190;</a>
+                  </div>
+                  <div class="pdf-item">
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=7HkyG7fPXHo45xG1&amp;list=PLJtJvO3aaWe3yr3vNZWWWSjk7-CArNztG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  </div>
+                  <div class="pdf-item">
+                      <img src="/images/material_quizzer.jpg" alt="PDF" class="pdf-image">
+                      <a href="maths3.pdf" download class="download-icon">&#128190;</a>
+                  </div>
+              </div>
+          </div>
+        
+          <div class="course" data-course="human">
+              <h2>Human Resource Development</h2>
+              <div class="pdf-container">
+                  <div class="pdf-item">
+                      <img src="/images/material_quizzer.jpg" alt="PDF" class="pdf-image">
+                      <a href="maths1.pdf" download class="download-icon">&#128190;</a>
+                  </div>
+                  <div class="pdf-item">
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=5YeiLyYZjmcUJjHN&amp;list=PL-ZxmUJb8PI1YRgp46AlT95T6TsPNGaDe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  </div>
+                  <div class="pdf-item">
+                      <img src="/images/material_quizzer.jpg" alt="PDF" class="pdf-image">
+                      <a href="maths3.pdf" download class="download-icon">&#128190;</a>
+                  </div>
+              </div>
+          </div>
+        
+          <div class="course" data-course="oraganizational">
+              <h2>Organizational Behaviour</h2>
+              <div class="pdf-container">
+                  <div class="pdf-item">
+                      <img src="/images/material_quizzer.jpg" alt="PDF" class="pdf-image">
+                      <a href="maths1.pdf" download class="download-icon">&#128190;</a>
+                  </div>
+                  <div class="pdf-item">
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=bMyC0yD8skNkrO2V&amp;list=PLwdnzlV3ogoWepo76qrO7SNTnXK1heZNf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  </div>
+                  <div class="pdf-item">
+                      <img src="/images/material_quizzer.jpg" alt="PDF" class="pdf-image">
+                      <a href="maths3.pdf" download class="download-icon">&#128190;</a>
+                  </div>
+              </div>
+          </div>
+        
+        
+          <div class="course" data-course="environmental">
+              <h2>Intro to Environmental Engineering</h2>
+              <div class="pdf-container">
+                  <div class="pdf-item">
+                      <img src="/images/material_quizzer.jpg" alt="PDF" class="pdf-image">
+                      <a href="maths1.pdf" download class="download-icon">&#128190;</a>
+                  </div>
+                  <div class="pdf-item">
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=JqgqXCmxzZoECrcj&amp;list=PLgzsL8klq6DIOpwb57vb_ha_IUyNKRUyS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  </div>
+                  <div class="pdf-item">
+                      <img src="/images/material_quizzer.jpg" alt="PDF" class="pdf-image">
+                      <a href="maths3.pdf" download class="download-icon">&#128190;</a>
+                  </div>
+              </div>
+          </div>
+        
+          <div class="course" data-course="ethics">
+              <h2>Ethics in Enviromental Practice</h2>
+              <div class="pdf-container">
+                  <div class="pdf-item">
+                      <img src="/images/material_quizzer.jpg" alt="PDF" class="pdf-image">
+                      <a href="maths1.pdf" download class="download-icon">&#128190;</a>
+                  </div>
+                  <div class="pdf-item">
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=NfaZa22T3vYO8y4r&amp;list=PLbRMhDVUMngdL7ofhT7uH9_XBk4-2qsIL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  </div>
+                  <div class="pdf-item">
+                      <img src="/images/material_quizzer.jpg" alt="PDF" class="pdf-image">
+                      <a href="maths3.pdf" download class="download-icon">&#128190;</a>
+                  </div>
+              </div>
+          </div>
+        
+          <!-- English Section -->
+          <div class="course" data-course="software">
+              <h2>Software Engineering</h2>
+              <div class="pdf-container">
+                  <div class="pdf-item">
+                      <img src="/images/material_quizzer.jpg" alt="PDF" class="pdf-image">
+                      <a href="english1.pdf" download class="download-icon">&#128190;</a>
+                  </div>
+                  <div class="pdf-item">
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=qoH0-u6ve8f92gP7&amp;list=PLbRMhDVUMngf8oZR3DpKMvYhZKga90JVt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  </div>
+                  <div class="pdf-item">
+                      <img src="/images/material_quizzer.jpg" alt="PDF" class="pdf-image">
+                      <a href="english3.pdf" download class="download-icon">&#128190;</a>
+                  </div>
+              </div>
+          </div>
+        
+          <div class="course" data-course="learning">
+              <h2>Learning Analytics Course</h2>
+              <div class="pdf-container">
+                  <div class="pdf-item">
+                      <img src="/images/material_quizzer.jpg" alt="PDF" class="pdf-image">
+                      <a href="maths1.pdf" download class="download-icon">&#128190;</a>
+                  </div>
+                  <div class="pdf-item">
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=syj6On9aHPOujfIL&amp;list=PLOzRYVm0a65e5FCHRUCkvmdBqGk8AdWaV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  </div>
+                  <div class="pdf-item">
+                      <img src="/images/material_quizzer.jpg" alt="PDF" class="pdf-image">
+                      <a href="maths3.pdf" download class="download-icon">&#128190;</a>
+                  </div>
+              </div>
+          </div>
+        
+        </div>
+        
+        
+        <script>
+          function filterCourses() {
+              const selectedCourse = document.getElementById('courseSelector').value;
+              const courses = document.querySelectorAll('.course');
+              
+              courses.forEach(course => {
+                  if (selectedCourse === 'all' || course.getAttribute('data-course') === selectedCourse) {
+                      course.style.display = 'block';
+                  } else {
+                      course.style.display = 'none';
+                  }
+              });
+          }
+        </script>
+        </div>
+    
+</body>
+</html>
